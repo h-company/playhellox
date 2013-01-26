@@ -1,7 +1,9 @@
 @(message: String)
 
 @main("Welcome to Play 2.1") {
-    
-    @play20.welcome(message)
-    
+    @{models.User.findByEmail("user@example.co").isDefined}
+        <br />
+    @{models.User.findByEmail("user@example.co")}
+        <br />
+    Hello, world!
 }
