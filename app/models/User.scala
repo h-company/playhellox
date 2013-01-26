@@ -26,4 +26,14 @@ object User {
     sql"SELECT * FROM user WHERE email = ${email}".map(*).single.apply()
     //SQL("select * from User where email = {id}").bindByName('id -> id).map(*).single.apply()
   }
+
+  def findById(id: Long)(implicit session: DBSession = AutoSession): Option[User] =
+  {
+    sql"SELECT * FROM user WHERE id = ${id}".map(*).single.apply()
+    //SQL("select * from User where email = {id}").bindByName('id -> id).map(*).single.apply()
+  }
+
+  def authenticate(email: String, password: String): Option[User] = {
+    findByEmail(email).filter(_.password == password)
+  }
 }

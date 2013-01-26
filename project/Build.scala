@@ -11,6 +11,7 @@ object ApplicationBuild extends Build {
     // Add your project dependencies here,
     jdbc,
     //anorm
+    "jp.t2v" %% "play21.auth" % "0.6",
     "com.github.seratch" %% "scalikejdbc" % "[1.4,)",
     "com.github.seratch" %% "scalikejdbc-play-plugin" % "[1.4,)",
     "com.github.seratch" %% "scalikejdbc-interpolation" % "[1.4,)",

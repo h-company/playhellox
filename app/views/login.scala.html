@@ -1,0 +1,13 @@
+@(form: Application.LoginForm)
+
+@main("Login form") {
+    @form.globalError.map { error =>
+        <a class="error">@error.message</a>
+    }
+
+    @helper.form(action = routes.Application.authenticate) {
+        @helper.inputText(form("email"))
+        @helper.inputPassword(form("password"))
+           <input type="submit" />
+    }
+}
